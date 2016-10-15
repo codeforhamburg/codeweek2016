@@ -20,6 +20,7 @@
         </style>
         <link rel="stylesheet" href="css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.1/dist/leaflet.css" />
 
         <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
     </head>
@@ -56,28 +57,64 @@
     <div class="jumbotron">
       <div class="container">
         <h1>Moin Workshop Teilnehmer!</h1>
-        <p>Wir nutzen dieses Website-Template um unsere statischen Projekte schnell und einfach, ohne Server mit Github-Pages zu hosten. Dieses HTML5 Template mit Twitter Bootstrap wurde generiert von <a href="http://www.initializr.com/">http://www.initializr.com/</a></p>
+        <p>Wir nutzen dieses Website-Template um unsere statischen Projekte schnell und einfach, ohne Server mit Github-Pages zu hosten. Dieses HTML5 Template mit Twitter Bootstrap wurde generiert von <a href="https://github.com/codeforhamburg/workshop"></a></p>
         <p><a class="btn btn-primary btn-lg" href="http://www.initializr.com/" role="button">HTML5 Template </a></p>
       </div>
     </div>
 
     
 
-    <!-- Beispiel 1: Per iframe eingebettete Carto Karte -->
+    <!-- Beispiel: Per iframe eingebettete Carto Karte -->
     
     <div class="container">
 
       <div class="row">
         <div class="col-sm-offset-2 col-sm-8 col-md-offset-2 col-md-8 col-lg-offset-1 col-lg-10">
           <h2>Spielsucht-Karte Hamburg</h2>
+          
           <iframe width='100%' height='520' frameborder='0' src='https://ubilabs.carto.com/viz/09726236-e9ca-11e5-9a6b-0e98b61680bf/embed_map' allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
+
           <p>Wie komme ich durch Hamburg ohne an einer Spielhalle vorbei zu kommen? Normalerweise keine alltägliche Frage, für einen (ehemaligen) Spielsüchtigen durchaus! Und: Wo sind eigentlich alle "Glücksspiel-Buden", Casinos, Zockerhallen, etc.? Alle auf St. Pauli oder auch in Wohngebieten, Gewerbegebieten, etc.?</p>
         </div>
       </div>  
     </div>
 
-    <!-- ENDE Beispiel 1-->
+    <!-- ENDE Beispiel-->
   
+    <!-- Beispiel: Finanzdaten per Offenerhaushalt.de  -->
+        
+        <div class="container">
+
+          <div class="row">
+          <div class="col-sm-offset-2 col-sm-8 col-md-offset-2 col-md-8 col-lg-offset-1 col-lg-10">
+
+            <h2>Offener Haushalt: Bundeshaushalt</h2>
+            
+            <iframe src="http://offenerhaushalt.de/haushalt/bund/embed/" width="100%" height="520px" frameborder="0" style="margin:0"> <a href="http://offenerhaushalt.de/haushalt/bund/">Offener Haushalt: Bundeshaushalt</a></iframe><br><small> <a href="http://offenerhaushalt.de/haushalt/bund/">OffenerHaushalt.de</a></small>
+        </div>
+      </div>  
+    </div>
+
+    <!-- ENDE Beispiel-->
+
+        <!-- Beispiel: Leaflet Karte-->
+        
+        <div class="container">
+
+          <div class="row">
+          <div class="col-sm-offset-2 col-sm-8 col-md-offset-2 col-md-8 col-lg-offset-1 col-lg-10">
+
+            <h2>Meine eigene Karte</h2>
+            
+            <div id="map" style="height:180px">
+            </div>
+
+        </div>
+      </div>  
+    </div>
+
+    <!-- ENDE Beispiel-->
+    
     
 
 
@@ -104,6 +141,22 @@
 
       <hr>
 
+    <div class="container">
+    <!-- Deployment of this Template -->
+      <div class="row">
+        <h2>Dieses Template online bringen</h2>
+          <p>Dieses Übungstemplate möchtest Du schnell und einfach per Github-Pages online bringen?</p>
+
+          <ul>
+            <li>Zum Github-Repository dieses: <a href="https://github.com/codeforhamburg/workshop">Templates</a></li>
+            <li>HTML5 Boilerplate Template mit Bootstrap: <a href="http://www.initializr.com/">http://www.initializr.com/</a></li>
+          </ul>
+        </div>
+      </div>
+
+
+
+
       <footer>
         <p>&copy; Codeforhamburg.org 2016</p>
       </footer>
@@ -113,6 +166,22 @@
         <script src="js/vendor/bootstrap.min.js"></script>
 
         <script src="js/main.js"></script>
+        
+        <!-- Leaflet Map -->
+        <script src="https://unpkg.com/leaflet@1.0.1/dist/leaflet.js"></script>
+        <script type="text/javascript">
+          $(document).ready(function() {
+            var map = L.map('map').setView([51.505, -0.09], 13);
+
+          L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+              attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+          }).addTo(map);
+
+          L.marker([51.5, -0.09]).addTo(map)
+              .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
+              .openPopup();
+                  });
+        </script>
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <!-- <script>
